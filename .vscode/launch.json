@@ -1,0 +1,51 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "SaafSaath: Build & Serve (port 8000)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": ["main:app", "--reload", "--port", "8000"],
+      "cwd": "${workspaceFolder}/backend",
+      "python": "${workspaceFolder}/backend/.venv/Scripts/python.exe",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/backend"
+      },
+      "console": "integratedTerminal",
+      "preLaunchTask": "frontend: build",
+      "serverReadyAction": {
+        "action": "openExternally",
+        "pattern": "Uvicorn running on (http://[\\w.]+:\\d+)",
+        "uriFormat": "%s"
+      }
+    },
+    {
+      "name": "SaafSaath: Backend only (port 8000)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": ["main:app", "--reload", "--port", "8000"],
+      "cwd": "${workspaceFolder}/backend",
+      "python": "${workspaceFolder}/backend/.venv/Scripts/python.exe",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/backend"
+      },
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "SaafSaath: Full Dev (API :8000 + Vite :5173)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": ["main:app", "--reload", "--port", "8000"],
+      "cwd": "${workspaceFolder}/backend",
+      "python": "${workspaceFolder}/backend/.venv/Scripts/python.exe",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/backend"
+      },
+      "console": "integratedTerminal",
+      "preLaunchTask": "frontend: dev server"
+    }
+  ]
+}

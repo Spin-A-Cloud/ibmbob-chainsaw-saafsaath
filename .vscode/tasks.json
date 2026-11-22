@@ -1,0 +1,71 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "frontend: npm install",
+      "type": "shell",
+      "command": "npm install",
+      "options": {
+        "cwd": "${workspaceFolder}/frontend",
+        "shell": {
+          "executable": "powershell.exe",
+          "args": ["-ExecutionPolicy", "Bypass", "-Command"]
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "group": "build"
+      },
+      "problemMatcher": []
+    },
+
+    {
+      "label": "frontend: build",
+      "type": "shell",
+      "command": "npm run build",
+      "options": {
+        "cwd": "${workspaceFolder}/frontend",
+        "shell": {
+          "executable": "powershell.exe",
+          "args": ["-ExecutionPolicy", "Bypass", "-Command"]
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "group": "build"
+      },
+      "problemMatcher": []
+    },
+
+    {
+      "label": "frontend: dev server",
+      "type": "shell",
+      "command": "npm run dev",
+      "options": {
+        "cwd": "${workspaceFolder}/frontend",
+        "shell": {
+          "executable": "powershell.exe",
+          "args": ["-ExecutionPolicy", "Bypass", "-Command"]
+        }
+      },
+      "isBackground": true,
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "group": "run"
+      },
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^$"
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "VITE",
+          "endsPattern": "Local:.*localhost"
+        }
+      }
+    }
+  ]
+}
